@@ -1,12 +1,14 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
-	printf("|\\_/|\n");
-	printf("|q p|   /}\n");
-	printf("( 0 )\"\"\"\\\n");
-	printf("|\"^\"`    |\n");
-	printf("||_/=\\\\__|\n");
+	cout << "|\\_/|" << endl;
+	cout << "|q p|   /}" << endl;
+	cout << "( 0 )\"\"\"\\" << endl;
+	cout << "|\"^\"`    |" << endl;
+	cout << "||_/=\\\\__|" << endl;
 
 	return 0;
 }
