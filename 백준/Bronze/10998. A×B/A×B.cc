@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 
 int main()
 {
-	int A, B;
-	scanf("%d %d", &A, &B);
-	printf("%d", A*B);
+	int a, b;
+
+	std::cin >> a >> b;
+	std::cout << a * b;
 
 	return 0;
 }
