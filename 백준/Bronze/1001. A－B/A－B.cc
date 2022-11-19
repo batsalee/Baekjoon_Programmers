@@ -1,11 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 
 int main()
 {
-	int A, B;
+	int a, b;
 
-	scanf("%d %d", &A, &B);
-	printf("%d", A - B);
+	std::cin >> a >> b;
+	std::cout << a - b;
 
 	return 0;
 }
