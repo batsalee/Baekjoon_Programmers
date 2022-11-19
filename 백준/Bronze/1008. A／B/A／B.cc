@@ -1,10 +1,12 @@
-#include <stdio.h>
+#include <iostream>
 
 int main()
 {
-	int A, B;
-	scanf("%d %d", &A, &B);
-	printf("%.9lf", A/(double)B);
+	int a, b;
+
+	std::cin >> a >> b;
+	std::cout.precision(10);
+	std::cout << (static_cast<double>(a) / b);
 
 	return 0;
 }
