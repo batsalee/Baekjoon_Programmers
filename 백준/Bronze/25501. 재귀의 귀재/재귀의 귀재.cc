@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 
-int count_recursion;
+int count_recursion = 0;
 
 int recursion(const char* s, int l, int r) {
 	count_recursion++;
@@ -20,10 +20,10 @@ int main()
 	int test_case;
 	std::cin >> test_case;
 
-	char letter[1001];
+	std::string letter;
 	while (test_case--) {
-		count_recursion = 0;
 		std::cin >> letter;
-		std::cout << isPalindrome(letter) << ' ' << count_recursion << std::endl;
+		std::cout << isPalindrome(letter.c_str()) << ' ' << count_recursion << std::endl;
+		count_recursion = 0;
 	}
 }
