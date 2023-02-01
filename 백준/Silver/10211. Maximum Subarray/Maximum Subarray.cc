@@ -10,21 +10,19 @@ int main()
 	int number_of_testcase;
 	std::cin >> number_of_testcase;
 
-	int array_size, input, part_sum = 0;
+	int array_size;
+	int input;
 	while (number_of_testcase--) {
 		std::cin >> array_size;
 		std::vector<int> prefix_sum(array_size);
 
-		for (int i = 0; i < array_size; i++) {
+		std::cin >> prefix_sum[0];
+		for (int i = 1; i < array_size; i++) {
 			std::cin >> input;
-			part_sum += input;
-			prefix_sum[i] = part_sum;
-
-			if (part_sum < 0) part_sum = 0;
+			prefix_sum[i] = std::max(0, prefix_sum[i - 1]) + input;
 		}
 
 		std::cout << *std::max_element(prefix_sum.begin(), prefix_sum.end()) << '\n';
-		part_sum = 0;
 	}
 
 	return 0;
