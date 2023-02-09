@@ -10,9 +10,8 @@ int main()
 	int T;
 	std::cin >> T;
 
-	int N, M;
 	while (T--) {
-		//std::cout << '\n';
+		int N, M;
 		std::cin >> N >> M;
 		
 		std::vector<int> S(N), B(M);
