@@ -6,9 +6,8 @@ int main()
 	std::cin >> input;
 
 	std::string character = "MOBIS";
-
-	for (int i = 0; i < character.length(); i++) {
-		if (input.find(character[i]) == std::string::npos) {
+	for (auto c : character) {
+		if (input.find(c) == std::string::npos) {
 			std::cout << "NO";
 			return 0;
 		}
