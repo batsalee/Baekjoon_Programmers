@@ -1,32 +1,38 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
+
+void solve()
+{
+	int C;
+	cin >> C;
+
+	while (C--) {
+		int N;
+		cin >> N;
+		
+		vector<int> scores(N);
+		for (int i = 0; i < N; i++) {
+			cin >> scores[i];
+		}
+
+		double avg = accumulate(scores.begin(), scores.end(), 0.0) / N;		
+		int count = 0;
+		for (int i : scores) {
+			if (i > avg) count++;
+		}
+
+		cout << fixed;
+		cout.precision(3);
+		cout << 100 * count / (double)N << "%\n";
+	}
+}
 
 int main()
 {
-	int count;
-	cin >> count;
-	
-	int student_count;
-	double average;
-	int above_count;
-	for (int i = 0; i < count; i++)
-	{
-		cin >> student_count;
-		vector<int> scores(student_count);
-		for (int j = 0; j < student_count; j++)
-		{
-			cin >> scores[j];
-		}
-		average = accumulate(scores.begin(), scores.end(), 0.0) / student_count;
-		above_count = std::count_if(scores.begin(), scores.end(), [&](int s) {return (s > average); });
-		cout << fixed;
-		cout.precision(3);
-		cout << above_count * 100 / (double)student_count << '%' << endl;
-	}
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	solve();
 
 	return 0;
 }
