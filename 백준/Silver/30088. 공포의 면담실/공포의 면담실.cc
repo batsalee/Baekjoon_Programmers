@@ -5,13 +5,13 @@ void solve()
 {
 	int N;
 	cin >> N;
-	vector<int> times(N);
+	vector<long long> times(N);
 
 	for (int i = 0; i < N; i++) {
 		int count;
 		cin >> count;
 
-		int sum = 0, time;
+		long long sum = 0, time;
 		while (count--) {
 			cin >> time;
 			sum += time;
@@ -25,7 +25,7 @@ void solve()
 		times[i] += times[i - 1];
 	}
 
-	cout << accumulate(times.begin(), times.end(), 0);
+	cout << accumulate(times.begin(), times.end(), 0LL);
 }
 
 int main()
