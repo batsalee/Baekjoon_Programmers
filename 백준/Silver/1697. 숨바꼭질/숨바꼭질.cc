@@ -25,17 +25,17 @@ int main()
 			return 0;
 		}
 
-		if (here - 1 >= 0 && here - 1 <= 100000 && dis[here - 1] == -1) {
-			dis[here - 1] = dis[here] + 1;
-			q.push(here - 1);
-		}		
-		if (here + 1 >= 0 && here + 1 <= 100000 && dis[here + 1] == -1) {
+		if (2 * here <= 100000 && dis[2 * here] == -1) {
+			dis[2 * here] = dis[here] + 1;
+			q.push(2 * here);
+		}
+		if (here + 1 <= 100000 && dis[here + 1] == -1) {
 			dis[here + 1] = dis[here] + 1;
 			q.push(here + 1);
 		}
-		if (2 * here >= 0 && 2 * here <= 100000 && dis[2 * here] == -1) {
-			dis[2 * here] = dis[here] + 1;
-			q.push(2 * here);
-		}		
+		if (here - 1 >= 0 && dis[here - 1] == -1) {
+			dis[here - 1] = dis[here] + 1;
+			q.push(here - 1);
+		}
 	}
 }
