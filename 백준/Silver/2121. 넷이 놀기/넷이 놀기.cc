@@ -23,11 +23,10 @@ int main()
 
 	int result = 0;
 	for (int i = 0; i < N; i++) {
-		int r = upper_bound(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second)) - lower_bound(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second));
-		int t = upper_bound(coo.begin(), coo.end(), make_pair(coo[i].first, coo[i].second + B)) - lower_bound(coo.begin(), coo.end(), make_pair(coo[i].first, coo[i].second + B));
-		int tr = upper_bound(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second + B)) - lower_bound(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second + B));
-
-		if (r && t && tr) result++;	
+		if(binary_search(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second)) &&
+			binary_search(coo.begin(), coo.end(), make_pair(coo[i].first, coo[i].second + B)) &&
+			binary_search(coo.begin(), coo.end(), make_pair(coo[i].first + A, coo[i].second+B)) 
+			) result++;
 	}
 
 	cout << result;
