@@ -11,9 +11,14 @@ int main()
 	string input;
 	cin >> input;
 
-	int answer = 0;
+	long long answer = 0;
 	for (int i = 0; i < L; i++) {
-		answer += int((input[i] - 'a' + 1) * pow(31, i)) % 1234567891;
+		long long hash = input[i] - 'a' + 1;
+		for (int j = 0; j < i; j++) {
+			hash = (hash * 31) % 1234567891;
+		}
+
+		answer = (answer + hash) % 1234567891;
 	}
 
 	cout << answer;
