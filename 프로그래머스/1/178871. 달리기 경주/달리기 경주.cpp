@@ -1,29 +1,18 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <unordered_map>
 using namespace std;
 
 vector<string> solution(vector<string> players, vector<string> callings) {
-    unordered_map<string, int> p2r;
-    unordered_map<int, string> r2p;    
-    for(int i = 0; i < players.size(); i++) {
-        p2r[players[i]] = i; 
-        r2p[i] = players[i];
-    }
+    unordered_map<string, int> rank;
+    for(int i = 0; i < players.size(); i++) { rank[players[i]] = i; }
     
     for(string& c : callings) {
-        int c_rank = p2r[c]; string c_name = c;
-        int prev_rank = p2r[c] - 1; string prev_name = r2p[prev_rank];
-        
-        p2r[c_name]--;
-        p2r[prev_name]++;
-        r2p[c_rank] = prev_name;
-        r2p[prev_rank] = c_name;
-    }    
-    
-    vector<string> answer(players.size());
-    for(int i = 0; i < players.size(); i++) {
-        answer[i] = r2p[i];
+        int c_rank = rank[c], prev_rank = rank[c] - 1;
+        rank[c]--; rank[players[prev_rank]]++;
+        swap(players[c_rank], players[prev_rank]);
     }
-    return answer;
+    
+    return players;
 }
