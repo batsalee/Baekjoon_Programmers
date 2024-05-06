@@ -2,6 +2,6 @@
 using namespace std;
 
 int main(void) {
-    std::cout << R"r(!@#$%^&*(\'"<>?:;)r";
+    cout << R"(!@#$%^&*(\'"<>?:;)";
     return 0;
 }
