@@ -5,21 +5,21 @@ int main()
 {
 	ios::sync_with_stdio(false); cin.tie(NULL);
 	
-	array<int, 5> input;
+	int input[5];
 	for (int i = 0; i < 5; i++) {
 		cin >> input[i];
 	}
 
-	vector<int> lcms;
+	int result = 2147483647;
 	for (int i = 0; i <= 2; i++) {
 		for (int j = i + 1; j <= 3; j++) {
 			for (int k = j + 1; k <= 4; k++) {
-				lcms.push_back(lcm(lcm(input[i], input[j]), input[k]));
+				result = min(result, lcm(lcm(input[i], input[j]), input[k]));
 			}
 		}
 	}
 
-	cout << *min_element(lcms.begin(), lcms.end());
+	cout << result;
 
 	return 0;
 }
