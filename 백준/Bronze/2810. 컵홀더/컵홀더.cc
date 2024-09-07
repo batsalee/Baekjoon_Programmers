@@ -3,18 +3,15 @@ using namespace std;
 
 int main()
 {
-	int N;
+	int N, H = 2;
 	cin >> N;
 
 	char input;
-	int S = 0, L = 0;
 	for (int i = 0; i < N; i++) {
 		cin >> input;
-		if (input == 'S') S++;
-		else if (input == 'L') L++;
+		H += (input == 'S' ? 2 : 1);
 	}
-
-	cout << min(N, S + L / 2 + 1);
+	cout << min(N, H / 2);
 
 	return 0;
 }
