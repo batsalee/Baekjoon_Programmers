@@ -7,17 +7,17 @@ int main()
 
 	int N;
 	cin >> N;
-
-	set<int> s;
+	
+	bool arr[2001] = { false };
 	int input;
 	while (N--) {
 		cin >> input;
-		s.insert(input);
+		arr[input + 1000] = true;
 	}
 
-	for (int i : s) {
-		cout << i << ' ';
-	}
+	for (int i = 0; i < 2001; i++) {
+		if (arr[i]) cout << i - 1000 << ' ';
+	}	
 
 	return 0;
 }
