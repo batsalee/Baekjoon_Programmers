@@ -8,14 +8,14 @@ int main()
 	int N;
 	cin >> N;
 
-	vector<int> v(N);
-	for (int i = 0; i < N; i++) {
-		cin >> v[i];
+	set<int> s;
+	int input;
+	while (N--) {
+		cin >> input;
+		s.insert(input);
 	}
 
-	sort(v.begin(), v.end());
-	v.erase(unique(v.begin(), v.end()), v.end());
-	for (int i : v) {
+	for (int i : s) {
 		cout << i << ' ';
 	}
 
